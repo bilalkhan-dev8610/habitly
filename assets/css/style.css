@@ -1,0 +1,721 @@
+
+/* ==================================================
+   HABITLY - WEEK 1 FRONTEND INTERNSHIP
+   CodGen | HTML + CSS
+================================================== */
+
+
+/* 1. ROOT VARIABLES */
+
+:root {
+    /* Colors */
+    --navy: #0B1F3A;
+    --teal: #14B8A6;
+    --teal-dark: #0F9488;
+
+    --background: #F8FAFC;
+    --white: #FFFFFF;
+
+    --text-primary: #0B1F3A;
+    --text-secondary: #64748B;
+
+    --border: #E2E8F0;
+    --soft-teal: #E6F7F5;
+
+    /* Spacing: 8px system */
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 40px;
+    --space-6: 48px;
+    --space-7: 56px;
+    --space-8: 64px;
+
+    /* Other */
+    --radius: 12px;
+    --shadow: 0 4px 16px rgba(11, 31, 58, 0.06);
+
+    --transition: all 0.3s ease;
+}
+
+
+/* 2. RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont,
+        'Segoe UI', sans-serif;
+
+    background: var(--background);
+    color: var(--text-primary);
+
+    line-height: 1.6;
+}
+
+
+/* 3. GLOBAL ELEMENTS */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.container {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+
+/* 4. HEADER */
+
+.header {
+    background: var(--navy);
+    color: var(--white);
+
+    width: 100%;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    min-height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: var(--space-3);
+}
+
+
+/* Logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+
+    color: var(--white);
+
+    font-size: 24px;
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+.logo-icon {
+    font-size: 27px;
+}
+
+
+/* Navigation */
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.nav-link {
+    color: #CBD5E1;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    padding: 10px 14px;
+
+    border-radius: 8px;
+
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.nav-link.active {
+    color: var(--white);
+    background: var(--teal);
+}
+
+
+/* Header Date */
+
+.header-date {
+    color: #CBD5E1;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+
+/* 5. MAIN CONTENT */
+
+.main-content {
+    min-height: calc(100vh - 160px);
+
+    padding: var(--space-6) 0;
+}
+
+
+/* 6. WELCOME SECTION */
+
+.welcome-section {
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    padding: var(--space-6);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: var(--space-4);
+
+    margin-bottom: var(--space-6);
+}
+
+.welcome-label {
+    color: var(--teal-dark);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: var(--space-1);
+}
+
+.welcome-section h1 {
+    color: var(--navy);
+
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+
+    line-height: 1.25;
+
+    margin-bottom: var(--space-2);
+}
+
+.welcome-description {
+    color: var(--text-secondary);
+
+    font-size: 15px;
+    line-height: 1.8;
+
+    max-width: 550px;
+}
+
+.welcome-emoji {
+    font-size: 76px;
+    flex-shrink: 0;
+}
+
+
+/* 7. SECTION HEADINGS */
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: var(--space-2);
+
+    margin-bottom: var(--space-3);
+}
+
+.section-label {
+    color: var(--teal-dark);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+
+    margin-bottom: var(--space-1);
+}
+
+.section-heading h2,
+.habits-section h2,
+.stats-section h2 {
+    color: var(--navy);
+
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.view-all-link {
+    color: var(--teal-dark);
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.view-all-link:hover {
+    color: var(--navy);
+}
+
+
+/* 8. SUMMARY STATISTICS */
+
+.stats-section {
+    margin-bottom: var(--space-6);
+}
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: var(--space-3);
+
+    margin-top: var(--space-3);
+}
+
+.stat-card {
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    padding: var(--space-3);
+
+    box-shadow: var(--shadow);
+
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 22px rgba(11, 31, 58, 0.10);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--soft-teal);
+
+    border-radius: 10px;
+
+    font-size: 22px;
+
+    margin-bottom: var(--space-2);
+}
+
+.stat-title {
+    color: var(--text-secondary);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-bottom: var(--space-1);
+}
+
+.stat-card h3 {
+    color: var(--navy);
+
+    font-size: 30px;
+    font-weight: 800;
+
+    margin-bottom: var(--space-1);
+}
+
+.stat-description {
+    color: var(--text-secondary);
+
+    font-size: 12px;
+}
+
+
+/* 9. HABITS SECTION */
+
+.habits-section {
+    margin-bottom: var(--space-5);
+}
+
+.habits-section > h2 {
+    margin-bottom: var(--space-1);
+}
+
+.habits-section > p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: var(--space-2);
+}
+
+
+/* Habits Grid */
+
+.habits-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: var(--space-3);
+
+    margin-top: var(--space-3);
+}
+
+
+/* Habit Card */
+
+.habit-card {
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    padding: var(--space-3);
+
+    box-shadow: var(--shadow);
+
+    transition: var(--transition);
+}
+
+.habit-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--teal);
+
+    box-shadow: 0 10px 25px rgba(11, 31, 58, 0.10);
+}
+
+
+/* Habit Card Top */
+
+.habit-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: var(--space-1);
+
+    margin-bottom: var(--space-3);
+}
+
+.habit-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--soft-teal);
+
+    border-radius: 10px;
+
+    font-size: 24px;
+}
+
+
+/* Streak Badge */
+
+.streak-badge {
+    background: var(--soft-teal);
+    color: var(--teal-dark);
+
+    border-radius: 20px;
+
+    padding: 6px 12px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* Habit Card Text */
+
+.habit-card h3 {
+    color: var(--navy);
+
+    font-size: 18px;
+    font-weight: 700;
+
+    margin-bottom: var(--space-1);
+}
+
+.habit-card > p {
+    color: var(--text-secondary);
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    min-height: 44px;
+
+    margin-bottom: var(--space-3);
+}
+
+
+/* 10. COMPLETE BUTTON */
+
+.complete-button {
+    width: 100%;
+
+    padding: 12px 16px;
+
+    background: var(--teal);
+    color: var(--white);
+
+    border: 1px solid var(--teal);
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: var(--transition);
+}
+
+.complete-button:hover {
+    background: var(--teal-dark);
+    border-color: var(--teal-dark);
+
+    transform: translateY(-2px);
+}
+
+.complete-button:active {
+    transform: scale(0.98);
+}
+
+
+/* 11. FOOTER */
+
+.footer {
+    background: var(--navy);
+
+    padding: var(--space-3) 0;
+}
+
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: var(--space-2);
+}
+
+.footer p {
+    color: #CBD5E1;
+    font-size: 12px;
+}
+
+.footer a {
+    color: var(--teal);
+    font-weight: 700;
+}
+
+.footer a:hover {
+    color: var(--white);
+}
+
+.footer-note {
+    font-weight: 600;
+}
+
+
+/* 12. ACCESSIBILITY */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--teal);
+    outline-offset: 4px;
+}
+
+
+/* 13. TABLET RESPONSIVE - 768px */
+
+@media (max-width: 900px) {
+
+    .header-container {
+        flex-wrap: wrap;
+        padding: var(--space-2) 0;
+    }
+
+    .navigation {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header-date {
+        margin-left: auto;
+    }
+
+    .habits-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .welcome-section {
+        padding: var(--space-5);
+    }
+
+}
+
+
+/* 14. MOBILE RESPONSIVE - 360px */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 92%;
+    }
+
+    /* Header */
+
+    .header-container {
+        gap: var(--space-1);
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .header-date {
+        font-size: 11px;
+    }
+
+    .navigation {
+        justify-content: space-between;
+        gap: 2px;
+    }
+
+    .nav-link {
+        padding: 8px 9px;
+        font-size: 12px;
+    }
+
+
+    /* Main */
+
+    .main-content {
+        padding: var(--space-4) 0;
+    }
+
+
+    /* Welcome */
+
+    .welcome-section {
+        padding: var(--space-4) var(--space-3);
+        margin-bottom: var(--space-5);
+    }
+
+    .welcome-section h1 {
+        font-size: 27px;
+    }
+
+    .welcome-description {
+        font-size: 13px;
+    }
+
+    .welcome-emoji {
+        font-size: 44px;
+    }
+
+
+    /* Statistics */
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+    }
+
+    .stat-card {
+        padding: var(--space-3);
+    }
+
+    .stat-card h3 {
+        font-size: 26px;
+    }
+
+
+    /* Habits */
+
+    .habits-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+    }
+
+    .habit-card {
+        padding: var(--space-3);
+    }
+
+    .section-heading h2,
+    .habits-section h2,
+    .stats-section h2 {
+        font-size: 21px;
+    }
+
+
+    /* Footer */
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-1);
+    }
+
+}
+
+
+/* 15. EXTRA SMALL DEVICES */
+
+@media (max-width: 380px) {
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .nav-link {
+        padding: 7px 6px;
+        font-size: 11px;
+    }
+
+    .header-date {
+        font-size: 10px;
+    }
+
+    .welcome-section {
+        padding: var(--space-3) var(--space-2);
+    }
+
+    .welcome-section h1 {
+        font-size: 23px;
+    }
+
+    .welcome-emoji {
+        font-size: 35px;
+    }
+
+}
